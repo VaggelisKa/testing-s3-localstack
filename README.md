@@ -1,6 +1,6 @@
 # How to run
 
-Connecting simple node js app to an dockerized S3 bucket
+Connecting simple node js app to a dockerized S3 bucket
 
 ## Instalation
 Clone the project, install Docker and [AWS cli](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html)
