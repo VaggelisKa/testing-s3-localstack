@@ -8,6 +8,7 @@ Clone the project, install Docker and [AWS cli](https://docs.aws.amazon.com/cli/
 ## Usage
 Navigate to project folder and run
 ```
+docker-compose build
 docker-compose up
 ```
 
