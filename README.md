@@ -1,4 +1,4 @@
-# How to run
+# Node to S3
 
 Connecting simple node js app to a dockerized S3 bucket
 
