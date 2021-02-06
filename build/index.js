@@ -4,10 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const test_upload_1 = require("./test-upload");
+const documents_routes_1 = __importDefault(require("routes/documents.routes"));
 const app = express_1.default();
+app.use(documents_routes_1.default);
 app.listen(8000, async () => {
-    console.log('server listens to port 8000');
-    const awsRes = await test_upload_1.testUpload();
-    console.log(awsRes);
+    console.log('App is live');
 });

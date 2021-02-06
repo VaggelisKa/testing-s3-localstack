@@ -1,8 +1,15 @@
 import express from 'express';
-import { testUpload } from './test-upload';
+import routes from './routes/documents.routes';
+import * as bodyParser from 'body-parser';
+
 
 const app = express();
-app.listen(8000, async () => {  
-  const awsRes = await testUpload();
-  console.log(awsRes);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/api/documents', routes);
+
+app.listen(8000, async () => {
+  console.log('App is live');  
 });
