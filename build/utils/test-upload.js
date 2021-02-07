@@ -7,9 +7,9 @@ exports.testUpload = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const aws_1 = require("../aws");
-const testUpload = async (imageLocation) => {
+const testUpload = async (imagePath) => {
     try {
-        const filePath = path_1.default.resolve(__dirname, imageLocation);
+        const filePath = path_1.default.resolve(__dirname, imagePath);
         const fileStream = fs_1.default.createReadStream(filePath);
         const currentDate = new Date().toISOString();
         const fileName = `test-${currentDate}.png`;
@@ -18,6 +18,7 @@ const testUpload = async (imageLocation) => {
     }
     catch (error) {
         console.log(error);
+        throw error;
     }
 };
 exports.testUpload = testUpload;

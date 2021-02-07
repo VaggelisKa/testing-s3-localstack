@@ -1,19 +1,15 @@
-import { FileUploadResponse } from "models/fileRes";
 import { Response, Request } from 'express';
-import { testUpload } from "../utils/test-upload";
+import { uploadToS3 } from '../aws';
 
 export const uploadFile = async (request: Request, response: Response) => {
   try {
-    const { fileLocation } = request.body;
-    if (!fileLocation) throw new Error('No file was selected');
-
-    const awsRes = await testUpload(fileLocation);
-    if (!awsRes) throw new Error('Something bad happened');
+    const awsRes = await uploadToS3(request.file.path, request.file.filename);
+    if (!awsRes) new Error('Something bad happened');
 
     response.status(200).json(awsRes);
   } catch (error) {
     console.log(error);
-    response.status(404).json(error);
+    response.status(404).json({ message: 'Something went wrong' });
   }
 }
 

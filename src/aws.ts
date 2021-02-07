@@ -32,7 +32,7 @@ const s3client = new AWS.S3({
   s3ForcePathStyle: true
 })
 
-export const uploadFile = async (data: any, fileName: string) => (
+export const uploadToS3 = async (data: any, fileName: string) => (
   new Promise((resolve) => {
     s3client.upload(
       {
